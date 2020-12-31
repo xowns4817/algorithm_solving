@@ -1,4 +1,4 @@
-package com.company.programmers;
+package com.company.algorithm_solving.programmers;
 
 import java.util.Stack;
 

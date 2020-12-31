@@ -1,9 +1,7 @@
-package com.company.programmers;
+package com.company.algorithm_solving.programmers;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class test2 {
 
@@ -15,33 +13,26 @@ public class test2 {
 
        // Arrays.sort(arr2);
         solution(arr2);
+
     }
 
-    public static int[] solution(int[] numbers) {
-        int[] answer;
-        HashMap<Integer, String> hashMap = new HashMap<>();
-        Queue<Integer> tmpQueue = new LinkedList<>();
+    public static List<Integer> solution(int[] numbers) {
+        List<Integer> list = new ArrayList<>();
 
-        Arrays.sort(numbers);
+        HashMap<Integer, String> hashMap = new HashMap<>();
 
         for(int i=0; i<numbers.length; i++) {
             for(int j=i+1; j<numbers.length; j++) {
-                Integer temp = new Integer(numbers[i] + numbers[j]);
-
-                if(hashMap.containsKey(temp) == true) continue;
-                else {
-                    hashMap.put(temp, "ok");
-                    tmpQueue.offer(temp);
-                }
+                int temp = numbers[i] + numbers[j];
+                hashMap.put(temp, "ok");
             }
         }
 
-        int idx=0;
-        answer = new int[tmpQueue.size()];
-        while(!tmpQueue.isEmpty()) answer[idx++] = (tmpQueue.poll()).intValue();
+        for(Integer i: hashMap.keySet()) {
+            list.add(i);
+        }
 
-        hashMap.clear();
-        tmpQueue.clear();
-        return answer;
+        Collections.sort(list);
+        return list;
     }
 }
