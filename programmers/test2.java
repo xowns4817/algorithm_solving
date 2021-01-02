@@ -5,7 +5,7 @@ import java.util.*;
 
 public class test2 {
 
-    // 두 개 뽑아서 더하기 ( 실패... 왜 틀리는지 모르겟음.. )
+    // 두 개 뽑아서 더하기
     public static void main(String[ ] args) {
 
         int arr[ ] = {2,1,3,4,1};
