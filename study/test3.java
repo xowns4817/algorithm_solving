@@ -3,6 +3,7 @@ package com.company.algorithm_solving.study;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class test3 {
 
@@ -27,16 +28,16 @@ static int map[ ][ ] = {{1, 0, 0, 0, 0, 0},
         {0, 0, 1, 0, 0, 0},
         {0, 0, 0, 1, 0, 0},
         {0, 0, 0, 0, 1, 0},
-    {0, 0, 0, 0, 0, 1}};
+        {0, 0, 0, 0, 0, 1}};
 */
-
+/*
 static int map[ ][ ] = {{1, 0, 0, 0, 0, 0},
         {0, 1, 0, 0, 0, 0},
         {0, 0, 1, 5, 0, 0},
         {0, 0, 5, 1, 0, 0},
         {0, 0, 0, 0, 1, 0},
         {0, 0, 0, 0, 0, 1}};
-
+*/
 
 //static int map[ ][ ] = {{0, 1, 2, 3, 4, 5, 6}};
 /*
@@ -45,11 +46,12 @@ static int map[ ][ ] = {{4, 0, 0, 0, 0, 0, 0},
         {0, 0, 0, 0, 0, 0, 4}};
 */
 
+    static int map[][];
     static int dx[] = {-1, 0, 1, 0 };
     static int dy[] = {0, 1, 0, -1};
-    static int n = 4;
-    static int m = 6;
-    static int visit[][] = new int[n][m];
+    static int n;
+    static int m;
+    static int visit[][];
     static int res = 64;
     static List<CCTV> cctvList = new ArrayList<>();
 
@@ -57,12 +59,20 @@ static int map[ ][ ] = {{4, 0, 0, 0, 0, 0, 0},
         // 백준 15683번 감시
         // https://www.acmicpc.net/problem/15683
 
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        map = new int[n][m];
+        visit = new int[n][m];
+        
         for(int i=0; i<n; i++) {
             Arrays.fill(visit[i], 0);
         }
 
+
         for(int i=0; i<n; i++) {
             for(int j=0; j<m; j++) {
+                map[i][j] = sc.nextInt();
                 int v = map[i][j];
                 if(1<=v && v <=5) {
                     visit[i][j] = 1;
